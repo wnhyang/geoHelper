@@ -1,6 +1,8 @@
 package cn.wnhyang.geoHelper;
 
 import cn.hutool.core.io.resource.ResourceUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.wnhyang.geoHelper.ip.Ip2Region;
 import lombok.extern.slf4j.Slf4j;
 import org.lionsoul.ip2region.xdb.Searcher;
 
@@ -45,6 +47,22 @@ public class IpUtil {
             log.error("ip2region search error", e);
             return null;
         }
+    }
+
+    /**
+     * 查询ip
+     * @param ip ip
+     * @return 结果数据
+     */
+    public static Ip2Region getIp2Region(String ip) {
+        String search = search(ip);
+        if (StrUtil.isNotBlank(search)) {
+            String[] split = search.split("\\|");
+            if (split.length == 5) {
+                return new Ip2Region(ip, split[0], split[1], split[2], split[3], split[4]);
+            }
+        }
+        return null;
     }
 
     public static void main(String[] args) {
