@@ -130,7 +130,7 @@ public static void main(String[] args) {
 
 ![image](https://jsd.cdn.zzko.cn/gh/wnhyang/picx-images-hosting@master/20240429/image.1lbmlan12z.webp)
 
-现有坐标：`116.867584,39.542294`，其应该归属天津市-武清区，但是因为计算方法或者说是数据的缺陷，因此此点离廊坊市-广阳区更近，所以结果是`pcaByGeo:Pca(province=河北省, city=廊坊市, area=广阳区)`，并不正确。如下图所示。
+现有坐标：`116.867584,39.542294`，其应该归属天津市-武清区，但是因为计算方法或者说是数据的缺陷，因此点离廊坊市-广阳区更近，所以结果是`pcaByGeo:Pca(province=河北省, city=廊坊市, area=广阳区)`，并不正确。如下图所示。
 
 ![image](https://jsd.cdn.zzko.cn/gh/wnhyang/picx-images-hosting@master/20240430/image.4g4ar8iwlv.webp)
 ![image](https://jsd.cdn.zzko.cn/gh/wnhyang/picx-images-hosting@master/20240429/image.3k7tait1eh.webp)
@@ -145,7 +145,7 @@ public static void main(String[] args) {
 
 重要‼️
 
-所有一旦要画圈提高精度，必须连带画出边界外相邻的圈。因为，如果只是画出下面这样天津市-武清区的圈，不管边界外廊坊市-广阳区、北京市-通州区，那么原来被识别为通州、广阳的点会因为武清新增加的点的影响都被识别为武清区，而且新增的边界圆心坐标向边界方向画圆与其他地区圆近乎相切时的直径必须统一，这样才能保证边界点距离的准确。
+所以一旦要画圈提高精度，必须连带画出边界外相邻的圈。因为，如果只是画出下面这样天津市-武清区的圈，不管边界外廊坊市-广阳区、北京市-通州区，那么原来被识别为通州、广阳的点会因为武清新增加的点的影响都被识别为武清区，而且新增的边界圆心坐标向边界方向画圆与其他地区圆近乎相切时的直径必须统一，这样才能保证边界点距离的准确。
 
 如下图在北京通州、天津武清、廊坊广阳邻接的位置画了三个圈，其中天津武清区的圆心坐标为：`116.88,39.58`，北京通州圆心坐标为：`116.91,39.59`，廊坊广阳圆心坐标为：`116.70,39.54`。
 
@@ -158,8 +158,6 @@ public static void main(String[] args) {
 ![image](https://jsd.cdn.zzko.cn/gh/wnhyang/picx-images-hosting@master/20240430/image.58h690d9jp.webp)
 
 2、在`areas_with_geo.csv`文件中补充`120114`经纬度`120114,116.88,39.58`。
-
-![image](https://jsd.cdn.zzko.cn/gh/wnhyang/picx-images-hosting@master/20240430/image.2obbwdez7e.webp)
 
 ![image](https://jsd.cdn.zzko.cn/gh/wnhyang/picx-images-hosting@master/20240430/image.4ckotkn8wd.webp)
 
