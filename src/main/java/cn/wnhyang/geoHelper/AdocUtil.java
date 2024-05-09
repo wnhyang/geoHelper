@@ -160,7 +160,6 @@ public class AdocUtil {
         if (len == AREA_CODE_LENGTH) {
             String provinceCode = StrUtil.sub(areaCode, 0, 2);
             String cityCode = StrUtil.sub(areaCode, 0, 4);
-            log.info("provinceCode:{}, cityCode:{}, areaCode:{}", provinceCode, cityCode, areaCode);
             Pca pca = new Pca();
             pca.setProvince(getProvinceName(provinceCode));
             pca.setCity(getCityName(cityCode));
